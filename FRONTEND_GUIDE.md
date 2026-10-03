@@ -32,6 +32,12 @@ const programs = await programsResponse.json();
 6. Certificate check: `GET /certificates/verify/{code}`.
 7. Job board and applications: `GET /jobs`, `POST /jobs/{id}/apply`, `GET /my/applications`.
 8. Employer job management: `POST /jobs`, `GET /jobs/{id}/applications`.
+9. Trainee profile and career guidance: `GET/PUT /profile/trainee`, `POST /career/chat`.
+10. Course enrolment, progress and assessment: `/courses/{id}/enroll`, `/lessons/{id}/progress`, `/assessments` routes.
+11. Secure QR attendance: trainees display `GET /attendance/qr-token`; staff scanners submit it to `POST /attendance/scan`.
+12. Timetable and operations: `/programs/{id}/timetable`, `/hostel`, and `/logistics` routes.
+13. Monitoring: `/analytics/overview` and `/analytics/programs/{id}`.
+14. Offline progress reconciliation: `POST /offline/sync`.
 
 ## Important behavior
 

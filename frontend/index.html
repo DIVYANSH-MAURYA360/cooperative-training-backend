@@ -4,46 +4,43 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#102c26">
-<title>CoopLearn</title>
+<meta name="description" content="Cooperative training ERP, LMS and employment platform">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>SahakarSetu · NCCT Digital Ecosystem</title>
 <style>
-:root{--ink:#18352d;--muted:#55645c;--green:#176b4a;--mint:#e5f2e9;--paper:#f5f7f3;--line:#dce4dc;--red:#a32d2d}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-button,input,select,textarea{font:inherit}
-header{background:#102c26;color:#fff;padding:12px 18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.brand{font-weight:750;font-size:19px}
-.who{display:flex;gap:12px;align-items:center;font-size:14px;flex-wrap:wrap}
-.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#c2c9c2;margin-right:6px}
-.dot.on{background:#38a76a}.dot.off{background:#e2a73d}
-nav{display:flex;gap:6px;padding:10px 18px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto}
-nav button{border:0;background:none;padding:10px 14px;border-radius:9px;color:var(--muted);font-weight:650;white-space:nowrap;min-height:44px;cursor:pointer}
-nav button.active{background:var(--mint);color:var(--green)}
-main{max-width:880px;margin:0 auto;padding:22px 16px 80px}
-h1{font-size:24px;margin:0 0 4px}h2{font-size:18px;margin:0 0 10px}
-.sub{color:var(--muted);margin:0 0 18px}
-.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
-.item{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
-.item:first-of-type{border-top:0}
-.item b{display:block}
-.item small{color:var(--muted);display:block;font-size:14px;white-space:pre-wrap}
-.btn{border:1px solid var(--green);background:var(--green);color:#fff;border-radius:9px;padding:10px 16px;font-weight:650;min-height:44px;cursor:pointer}
-.btn.ghost{background:#fff;color:var(--green)}
-input,select,textarea{width:100%;padding:11px 12px;border:1px solid #b9c7bd;border-radius:9px;margin:4px 0 12px;background:#fff}
-input[type=checkbox]{width:auto;margin:0 8px 0 0}
-label{font-weight:650;font-size:14px}
-.login{max-width:400px;margin:30px auto}
-.link{background:none;border:0;color:var(--green);font-weight:650;cursor:pointer;padding:8px 0}
-.msg{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#153b2c;color:#fff;padding:12px 18px;border-radius:10px;max-width:92vw;display:none;z-index:9}
-.msg.err{background:var(--red)}
-.empty{color:var(--muted);margin:0}
-#reader{max-width:320px;margin-bottom:12px}
-:focus-visible{outline:3px solid #2f8f67;outline-offset:2px}
+:root{--ink:#16231e;--muted:#6b7771;--brand:#0f6b4f;--brand2:#13a36f;--mint:#eaf8f1;--paper:#f5f7f6;--surface:#fff;--line:#e5eae7;--red:#c2414a;--amber:#f2a93b;--purple:#6d5ce7;--shadow:0 12px 35px rgba(20,46,36,.08);--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}[hidden]{display:none!important}
+body{margin:0;min-height:100vh;overflow-x:hidden;background:var(--paper);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;display:grid;grid-template:82px 1fr/250px minmax(0,1fr)}
+button,input,select,textarea{font:inherit}button{transition:.2s ease}button:active{transform:translateY(1px)}
+header{grid-column:1/-1;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:0 28px;display:flex;gap:18px;align-items:center;justify-content:space-between;z-index:5;position:sticky;top:0}
+.brand{display:flex;align-items:center;gap:12px}.brandmark{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--brand),#0ab981);display:grid;place-items:center;color:white;box-shadow:0 8px 20px rgba(15,107,79,.24)}
+.brandmark svg{width:25px;height:25px}.brandtext{display:flex;flex-direction:column;line-height:1.15}.brandtext b{font-size:18px;letter-spacing:-.3px}.brandtext small{color:var(--muted);font-size:11px;margin-top:4px;letter-spacing:.3px;text-transform:uppercase}
+.who{display:flex;gap:12px;align-items:center;font-size:13px;flex-wrap:wrap}.status-chip{padding:8px 11px;border:1px solid var(--line);background:#fafcfb;border-radius:999px;color:var(--muted)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c2c9c2;margin-right:7px;box-shadow:0 0 0 3px rgba(194,201,194,.18)}.dot.on{background:#22b573;box-shadow:0 0 0 3px rgba(34,181,115,.14)}.dot.off{background:var(--amber)}
+nav{grid-column:1;grid-row:2;background:#10271f;color:#fff;padding:24px 14px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;position:sticky;top:82px;height:calc(100vh - 82px);scrollbar-width:none}nav::-webkit-scrollbar{display:none}
+nav:before{content:"WORKSPACE";font-size:10px;letter-spacing:1.7px;color:#77988a;font-weight:800;padding:0 13px 10px}
+nav button{border:0;background:transparent;padding:11px 13px;border-radius:12px;color:#a9beb5;font-weight:650;text-align:left;white-space:nowrap;min-height:45px;cursor:pointer;display:flex;align-items:center;gap:11px}
+nav button:hover{background:rgba(255,255,255,.055);color:#fff}nav button.active{background:linear-gradient(100deg,rgba(35,191,133,.2),rgba(35,191,133,.08));color:#fff;box-shadow:inset 3px 0 #30d192}.navicon{font-size:17px;width:20px;text-align:center;filter:saturate(.8)}
+main{grid-column:2;grid-row:2;width:100%;max-width:1280px;margin:0 auto;padding:34px 38px 90px}
+h1{font-size:30px;line-height:1.15;letter-spacing:-.9px;margin:0 0 7px}h2{font-size:18px;letter-spacing:-.25px;margin:0 0 13px}h3{margin:0 0 6px}.sub{color:var(--muted);margin:0 0 22px}
+.card{background:var(--surface);border:1px solid rgba(222,229,225,.9);border-radius:var(--radius);padding:21px;margin-bottom:17px;box-shadow:0 3px 15px rgba(25,55,43,.035)}
+.card:hover{border-color:#d8e3dd}.item{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:16px 2px;border-top:1px solid var(--line)}.item:first-of-type{border-top:0}.item b{display:block;font-size:15px}.item small{color:var(--muted);display:block;font-size:13px;white-space:pre-wrap;margin-top:3px}
+.btn{border:1px solid var(--brand);background:linear-gradient(135deg,var(--brand),#118d64);color:#fff;border-radius:11px;padding:9px 15px;font-weight:700;min-height:41px;cursor:pointer;box-shadow:0 4px 12px rgba(15,107,79,.14)}.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}.btn.ghost{background:#fff;color:var(--brand);border-color:#cfddd6;box-shadow:none}.btn.ghost:hover{background:var(--mint)}
+input,select,textarea{width:100%;padding:12px 13px;border:1px solid #d4ddd8;border-radius:11px;margin:5px 0 15px;background:#fafcfb;color:var(--ink);transition:.2s}input:hover,select:hover,textarea:hover{border-color:#adc5b9}input:focus,select:focus,textarea:focus{outline:0;border-color:#2a9b72;box-shadow:0 0 0 4px rgba(42,155,114,.11);background:#fff}input[type=checkbox],input[type=radio]{width:auto;margin:0 8px 0 0}label{font-weight:700;font-size:13px;color:#30453b}
+.auth-mode{display:block;background:#edf5f1}.auth-mode header{position:fixed;width:100%;background:transparent;border:0}.auth-mode main{max-width:none;padding:0;min-height:100vh}.auth-shell{min-height:100vh;display:grid;grid-template-columns:minmax(360px,.9fr) 1.1fr}.auth-panel{display:grid;place-items:center;padding:110px 36px 50px}.login{width:100%;max-width:440px;margin:0;padding:30px;box-shadow:var(--shadow)}.auth-visual{position:relative;overflow:hidden;background:linear-gradient(135deg,#0b3f31,#0b7652 65%,#14a571);color:#fff;padding:12vh 8vw;display:flex;flex-direction:column;justify-content:flex-end}.auth-visual:before,.hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:80px solid rgba(255,255,255,.055);right:-110px;top:-100px}.auth-visual h2{font-size:42px;line-height:1.12;max-width:620px;letter-spacing:-1.5px}.auth-visual p{max-width:550px;color:#cde8dc;font-size:17px}.auth-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.auth-badges span{padding:8px 12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.08);font-size:12px}
+.link{background:none;border:0;color:var(--brand);font-weight:750;cursor:pointer;padding:12px 0}.msg{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#153b2c;color:#fff;padding:13px 19px;border-radius:12px;max-width:92vw;display:none;z-index:20;box-shadow:var(--shadow)}.msg.err{background:var(--red)}
+.hero{position:relative;overflow:hidden;border:0;border-radius:26px;background:linear-gradient(125deg,#0c563f,#0c8159);color:#fff;padding:34px 36px;margin-bottom:22px;box-shadow:0 18px 45px rgba(11,102,73,.18)}.hero>*{position:relative}.hero h1{font-size:34px;max-width:680px}.hero p{color:#d5eee3;max-width:650px;margin-bottom:21px}.eyebrow{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:800;color:#8ee0bd;margin-bottom:10px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.hero .btn{background:#fff;color:#0b6b4b;border-color:#fff}.hero .btn.ghost{background:rgba(255,255,255,.09);color:#fff;border-color:rgba(255,255,255,.3)}
+.empty{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:15px;margin-bottom:20px}.grid .card{margin:0}.metric{font-size:31px;font-weight:800;letter-spacing:-1px;color:var(--brand)}.metric-card{position:relative;overflow:hidden}.metric-card small{color:var(--muted);font-weight:650}.metric-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--mint);margin-bottom:15px;font-size:18px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:26px 0 12px}.section-head h2{margin:0}.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.pill{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--mint);color:var(--brand);font-size:11px;font-weight:800;text-transform:capitalize}.warn{border-left:4px solid var(--amber)}.ok{border-left:4px solid var(--brand2)}.question{padding:16px 0;border-top:1px solid var(--line)}.question:first-child{border-top:0}.question label{display:block;font-weight:500;margin:9px 0}.question input{width:auto;margin-right:8px}#reader{max-width:340px;margin:14px 0;border-radius:16px;overflow:hidden}
+.progress{height:9px;background:#edf1ef;border-radius:99px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--brand),#22c98a)}.score{min-width:54px;height:54px;border-radius:16px;background:var(--mint);display:grid;place-items:center;color:var(--brand);font-weight:850}.risk-high{border-left:4px solid var(--red)}.risk-medium{border-left:4px solid var(--amber)}.mono{font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;background:#10271f;color:#b9f3d9;border-radius:10px;padding:12px;word-break:break-all}
+:focus-visible{outline:3px solid #43b88d;outline-offset:2px}
+@media(max-width:900px){body{grid-template:72px 1fr/1fr}header{grid-row:1;padding:0 16px}.brandtext small{display:none}nav{grid-column:1;grid-row:2;position:fixed;left:0;right:0;bottom:0;top:auto;height:68px;z-index:10;flex-direction:row;overflow-x:auto;padding:8px 10px;background:#10271f}nav:before{display:none}nav button{min-width:76px;flex-direction:column;justify-content:center;gap:1px;font-size:10px;padding:5px 9px}nav button.active{box-shadow:inset 0 3px #30d192}main{grid-column:1;grid-row:2;padding:25px 16px 92px}.status-chip{display:none}.auth-shell{grid-template-columns:1fr}.auth-visual{display:none}.auth-panel{padding:95px 18px 35px}.hero{padding:28px 24px}.hero h1{font-size:28px}}
+@media(max-width:560px){.who #user{display:none}.item{align-items:flex-start;flex-direction:column}.actions{justify-content:flex-start;width:100%}.actions .btn{flex:1}.grid{grid-template-columns:1fr 1fr;gap:10px}.card{padding:17px;border-radius:16px}.metric{font-size:25px}h1{font-size:26px}}
 </style>
 </head>
 <body>
 <header>
-  <span class="brand">CoopLearn</span>
-  <span class="who"><span id="api"><i class="dot"></i>Checking server</span><span id="user"></span><button class="btn ghost" id="out" hidden>Sign out</button></span>
+  <span class="brand"><span class="brandmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11.5 12 5l8 6.5v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8 19.5v-6h8v6M9 9.5h6"/></svg></span><span class="brandtext"><b>SahakarSetu</b><small>NCCT Digital Ecosystem</small></span></span>
+  <span class="who"><span id="api" class="status-chip"><i class="dot"></i>Checking server</span><span id="user"></span><button class="btn ghost" id="out" hidden>Sign out</button></span>
 </header>
 <nav id="nav" hidden></nav>
 <main id="app"></main>
@@ -51,7 +48,7 @@ label{font-weight:650;font-size:14px}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
 <script>
-const API = window.API_BASE || "http://127.0.0.1:8000";
+const API = window.API_BASE || (location.protocol.startsWith("http") ? location.origin : "http://127.0.0.1:8000");
 let token = null, me = null;
 try { token = sessionStorage.getItem("coop_token"); } catch (e) {}
 
@@ -71,6 +68,8 @@ const F = (id, l, t = "text", x = "") => t === "check"
   : `<label for="${id}">${l}</label><input id="${id}" type="${t}" ${x}>`;
 const V = id => { const e = $("#" + id); return e.type === "checkbox" ? e.checked : e.value.trim(); };
 const post = (p, b) => api(p, {method: "POST", body: b ? JSON.stringify(b) : undefined});
+const put = (p, b) => api(p, {method: "PUT", body: JSON.stringify(b)});
+const patch = (p, b) => api(p, {method: "PATCH", body: JSON.stringify(b)});
 
 let timer;
 function say(text, err) {
@@ -80,36 +79,47 @@ function say(text, err) {
 
 async function api(path, opt = {}) {
   const headers = Object.assign({}, opt.body ? {"Content-Type": "application/json"} : {}, token ? {Authorization: "Bearer " + token} : {});
+  const method = opt.method || "GET";
+  const cacheable = method === "GET" && (!me || isTrainee()) && (/^\/courses(?:\/|$)/.test(path) || /^\/assessments\/\d+\/questions/.test(path) || /^\/programs(?:\/\d+\/timetable)?$/.test(path));
+  const cacheKey = "coop_cache:" + path;
   let r;
   try { r = await fetch(API + path, Object.assign({}, opt, {headers})); }
-  catch (e) { throw new Error("Cannot reach the server. Start the backend and open this page at http://localhost:5173 (not 127.0.0.1)."); }
+  catch (e) {
+    if (cacheable) { try { const saved=localStorage.getItem(cacheKey); if (saved) return JSON.parse(saved); } catch (ignore) {} }
+    const x = new Error("Cannot reach the server. Your pending lesson progress will sync when you reconnect."); x.network = true; throw x;
+  }
   let d = null; try { d = await r.json(); } catch (e) {}
   if (r.status === 401 && token) { logout(); throw new Error("Session expired. Please sign in again."); }
   if (!r.ok) {
     let msg = d && typeof d.detail === "string" ? d.detail : null;
     if (!msg && r.status === 422) msg = "Some values are not valid. Please check and try again.";
     if (!msg && r.status === 403) msg = "Your account role cannot do this.";
-    throw new Error(msg || "Something went wrong (" + r.status + ").");
+    const x = new Error(msg || "Something went wrong (" + r.status + ")."); x.status = r.status; throw x;
   }
+  if (cacheable) try { localStorage.setItem(cacheKey,JSON.stringify(d)); } catch (ignore) {}
   return d;
 }
 
 function logout() {
   token = null; me = null;
-  try { sessionStorage.removeItem("coop_token"); } catch (e) {}
+  try { sessionStorage.removeItem("coop_token"); sessionStorage.removeItem("coop_me"); } catch (e) {}
   showLogin(false);
 }
 
 function showLogin(signup) {
+  document.body.classList.add("auth-mode");
   $("#nav").hidden = true; $("#out").hidden = true; $("#user").textContent = "";
-  $("#app").innerHTML = `<form class="card login" id="lf"><h1>${signup ? "Create account" : "Sign in"}</h1>
-    <p class="sub">${signup ? "Trainee accounts only. Staff accounts are created by an administrator." : "Use your CoopLearn account."}</p>
+  $("#app").innerHTML = `<div class="auth-shell"><section class="auth-panel"><form class="card login" id="lf"><div class="eyebrow">Welcome to SahakarSetu</div><h1>${signup ? "Create your learner account" : "Sign in to your workspace"}</h1>
+    <p class="sub">${signup ? "Join India's cooperative learning and employment network." : "Learning, operations and opportunity—connected in one place."}</p>
     ${signup ? F("fn", "Full name", "text", "required minlength=2") : ""}
     ${F("em", "Email", "email", "required autocomplete=username")}
     ${F("pw", "Password" + (signup ? " (at least 8 characters)" : ""), "password", "required minlength=8 autocomplete=" + (signup ? "new-password" : "current-password"))}
     ${signup ? F("ins", "Institution (optional)") + F("ph", "Phone (optional)", "tel") : ""}
-    <button class="btn" style="width:100%">${signup ? "Create account" : "Sign in"}</button>
-    <button type="button" class="link" id="sw">${signup ? "I already have an account" : "Create a trainee account"}</button></form>`;
+    <button class="btn" style="width:100%">${signup ? "Create account" : "Sign in securely"}</button>
+    <button type="button" class="link" id="sw">${signup ? "I already have an account" : "New learner? Create an account"}</button></form></section>
+    <section class="auth-visual"><div class="eyebrow">Ministry of Cooperation · NCCT</div><h2>Building skills. Strengthening cooperatives. Creating livelihoods.</h2>
+    <p>A unified platform for training institutions, cooperative personnel, rural youth, educators and employers across India.</p>
+    <div class="auth-badges"><span>Multilingual LMS</span><span>Verified credentials</span><span>Employment exchange</span><span>Offline ready</span></div></section></div>`;
   $("#sw").onclick = () => showLogin(!signup);
   $("#lf").onsubmit = async e => {
     e.preventDefault();
@@ -125,11 +135,29 @@ function showLogin(signup) {
 }
 
 const views = {
+  async home() {
+    const [programs,courses,jobs] = await Promise.all([api("/programs").catch(()=>[]),api("/courses").catch(()=>[]),api("/jobs").catch(()=>[])]);
+    let stats={programs:list(programs).length,courses:list(courses).length,jobs:list(jobs).length,registrations:"—"};
+    if (["admin","institution"].includes(me.role)) try { const a=await api("/analytics/overview");stats={programs:a.programs,courses:a.courses,jobs:a.active_jobs,registrations:a.registrations}; } catch(e){}
+    const first=(me.full_name||"there").split(" ")[0];
+    const employerOnly=me.role==="employer";
+    const roleCopy=isTrainee()?"Continue learning, build verified skills and discover opportunities made for your journey.":employerOnly?"Connect trained cooperative talent with meaningful livelihood opportunities.":"Manage training operations and turn programme data into measurable impact.";
+    $("#app").innerHTML=`<section class="hero"><div class="eyebrow">Your cooperative growth workspace</div><h1>Namaste, ${esc(first)}. Ready to create impact?</h1><p>${roleCopy}</p><div class="hero-actions">
+      <button class="btn" data-v="${isTrainee()?"courses":employerOnly?"jobs":"programs"}">${isTrainee()?"Continue learning":employerOnly?"Manage opportunities":"Manage programmes"}</button>
+      <button class="btn ghost" data-v="${isTrainee()?"career":["admin","institution"].includes(me.role)?"analytics":"operations"}">${isTrainee()?"Ask career guide":["admin","institution"].includes(me.role)?"View analytics":"Open operations"}</button></div></section>
+      <div class="grid"><div class="card metric-card"><div class="metric-icon">◫</div><div class="metric">${stats.programs}</div><small>Training programmes</small></div>
+      <div class="card metric-card"><div class="metric-icon">▤</div><div class="metric">${stats.courses}</div><small>Learning courses</small></div>
+      <div class="card metric-card"><div class="metric-icon">⌁</div><div class="metric">${stats.jobs}</div><small>Active opportunities</small></div>
+      <div class="card metric-card"><div class="metric-icon">✓</div><div class="metric">${stats.registrations}</div><small>Total registrations</small></div></div>
+      <div class="section-head"><div><div class="eyebrow">Discover</div><h2>Upcoming programmes</h2></div><button class="btn ghost" data-v="programs">View all</button></div>
+      <div class="card">${list(programs).slice(0,4).map(p=>row(p.title,`${p.institution} · ${p.location} · ${fmt(p.start_date)}`,`<span class="pill">${p.is_published?"Open":"Draft"}</span>`)).join("")||`<p class="empty">No programmes have been published yet.</p>`}</div>`;
+  },
   async programs() {
     const d = list(await api("/programs"));
     const rows = d.map(p => row(p.title,
       `${p.institution} | ${p.location} | ${fmt(p.start_date)} to ${fmt(p.end_date)} | ${p.capacity} seats${p.is_published ? "" : " | draft"}\n${p.description || ""}`,
-      isTrainee() ? `<button class="btn" data-reg="${p.id}">Register</button>` : isStaff() ? `<button class="btn ghost" data-regs="${p.id}">Registrations</button>` : "")).join("");
+      `<span class="actions"><button class="btn ghost" data-schedule="${p.id}">Timetable</button>` +
+      (isTrainee() ? `<button class="btn" data-reg="${p.id}">Register</button>` : isStaff() ? `<button class="btn" data-regs="${p.id}">Manage</button>` : "") + `</span>`)).join("");
     $("#app").innerHTML = `<h1>Programmes</h1><p class="sub">${isTrainee() ? "Register for a training programme." : "Programmes you manage."}</p>
       <div class="card">${rows || `<p class="empty">No programmes yet.</p>`}</div><div id="sub"></div>` +
       (isStaff() ? `<form class="card" id="pf"><h2>New programme</h2>${F("pt", "Title", "text", "required")}${F("pi", "Institution", "text", "required")}
@@ -145,8 +173,12 @@ const views = {
   },
   async courses() {
     const d = list(await api("/courses"));
+    const enrolled = isTrainee() ? list(await api("/my/course-enrollments").catch(() => [])) : [];
+    const enrolledIds = new Set(enrolled.map(x => x.course_id));
     $("#app").innerHTML = `<h1>Courses</h1><p class="sub">Open a course to read its lessons.</p>
-      <div class="card">${d.map(c => row(c.title, `${c.language}${c.is_published ? "" : " | draft"}\n${c.description || ""}`, `<button class="btn ghost" data-les="${c.id}">Open lessons</button>`)).join("") || `<p class="empty">No courses yet.</p>`}</div><div id="sub"></div>` +
+      <div class="card">${d.map(c => row(c.title, `${c.language}${c.is_published ? "" : " | draft"}${enrolledIds.has(c.id) ? " | enrolled" : ""}\n${c.description || ""}`,
+        `<span class="actions"><button class="btn ghost" data-les="${c.id}">Lessons</button><button class="btn ghost" data-assess="${c.id}">Assessments</button>` +
+        (isTrainee() && !enrolledIds.has(c.id) ? `<button class="btn" data-enroll="${c.id}">Enroll</button>` : "") + `</span>`)).join("") || `<p class="empty">No courses yet.</p>`}</div><div id="sub"></div>` +
       (isStaff() ? `<form class="card" id="cf"><h2>New course</h2>${F("ct", "Title", "text", "required")}${F("cl", "Language", "text", 'value="English"')}
         <label for="cd">Description</label><textarea id="cd" rows="3"></textarea>${F("cp", "Publish now", "check")}<button class="btn">Create course</button></form>` : "");
     if (isStaff()) $("#cf").onsubmit = async e => {
@@ -160,22 +192,22 @@ const views = {
     $("#app").innerHTML = `<h1>Attendance</h1><p class="sub">Mark a trainee present by typing their ID or scanning their QR code.</p>
       <form class="card" id="af"><label for="ap">Programme</label><select id="ap">${d.map(p => `<option value="${p.id}">${esc(p.title)}</option>`).join("")}</select>
       ${F("at", "Trainee ID", "number", "min=1 required")}${F("ad", "Date", "date", `value="${today()}"`)}
-      <label for="am">Method</label><select id="am"><option value="manual">manual</option><option value="qr">qr</option></select>
       <button class="btn">Mark present</button> <button type="button" class="btn ghost" id="scan">Scan trainee QR</button></form>
       <div id="reader"></div><div id="sub"></div>`;
     $("#af").onsubmit = async e => {
       e.preventDefault();
-      try { await post("/attendance", {program_id: +V("ap"), trainee_id: +V("at"), session_date: V("ad"), method: V("am")});
+      try { await post("/attendance", {program_id: +V("ap"), trainee_id: +V("at"), session_date: V("ad"), method: "manual"});
         say("Attendance marked for trainee " + V("at") + "."); records(); }
       catch (x) { say(x.message, true); }
     };
     $("#scan").onclick = () => {
       if (!window.Html5Qrcode) return say("Scanner could not load. Type the trainee ID instead.", true);
       const s = new Html5Qrcode("reader");
-      s.start({facingMode: "environment"}, {fps: 8, qrbox: 220}, txt => {
-        const m = /(\d+)/.exec(txt); if (!m) return;
+      s.start({facingMode: "environment"}, {fps: 8, qrbox: 220}, async txt => {
         s.stop().catch(() => {}); $("#reader").innerHTML = "";
-        $("#at").value = m[1]; $("#am").value = "qr"; $("#af").requestSubmit();
+        try { const marked = await post("/attendance/scan", {token: txt, program_id: +V("ap")});
+          say("QR attendance marked for trainee " + marked.trainee_id + "."); records(); }
+        catch (x) { say(x.message, true); }
       }, () => {}).catch(() => say("Camera not available. Type the trainee ID instead.", true));
     };
     if (d.length) records();
@@ -214,10 +246,91 @@ const views = {
     };
   },
   async qr() {
+    const data = await api("/attendance/qr-token");
     $("#app").innerHTML = `<h1>My attendance QR</h1><p class="sub">Show this code to your trainer when they take attendance.</p>
-      <div class="card"><div id="qrbox"></div><p class="sub" style="margin:12px 0 0">Your trainee ID: <b>${esc(me.id)}</b></p></div>`;
-    if (window.QRCode) new QRCode($("#qrbox"), {text: "COOP-ID:" + me.id, width: 220, height: 220});
+      <div class="card"><div id="qrbox"></div><p class="sub" style="margin:12px 0 0">This secure code expires in two minutes. Refresh this page for a new code.</p></div>`;
+    if (window.QRCode) new QRCode($("#qrbox"), {text: data.token, width: 220, height: 220});
     else $("#qrbox").textContent = "QR library could not load. Check your internet connection.";
+  },
+  async profile() {
+    let p = {state:"",district:"",education:"",skills:[],languages:[],bio:"",career_interests:[],biometric_consent:false};
+    try { p = await api("/profile/trainee"); } catch (x) { if (x.status !== 404) throw x; }
+    $("#app").innerHTML = `<h1>My trainee profile</h1><p class="sub">Your skills and interests support learning and employment matching.</p>
+      <form class="card" id="profilef">${F("prstate","State","text",`value="${esc(p.state)}"`)}${F("prdistrict","District","text",`value="${esc(p.district)}"`)}
+      ${F("predu","Education","text",`value="${esc(p.education)}"`)}${F("prskills","Skills (comma separated)","text",`value="${esc(list(p.skills).join(", "))}"`)}
+      ${F("prlangs","Languages (comma separated)","text",`value="${esc(list(p.languages).join(", "))}"`)}${F("printerests","Career interests (comma separated)","text",`value="${esc(list(p.career_interests).join(", "))}"`)}
+      <label for="prbio">Short bio</label><textarea id="prbio" rows="4">${esc(p.bio)}</textarea>
+      ${F("prbioagree","I consent to biometric processing only when a vetted face-attendance service is enabled", "check", p.biometric_consent ? "checked" : "")}
+      <button class="btn">Save profile</button></form>`;
+    $("#profilef").onsubmit = async e => { e.preventDefault();
+      const split = id => V(id).split(",").map(x => x.trim()).filter(Boolean);
+      try { await put("/profile/trainee", {state:V("prstate")||null,district:V("prdistrict")||null,education:V("predu")||null,
+        skills:split("prskills"),languages:split("prlangs"),bio:V("prbio"),career_interests:split("printerests"),biometric_consent:V("prbioagree")}); say("Profile saved."); }
+      catch (x) { say(x.message,true); }
+    };
+  },
+  async operations() {
+    const programs = list(await api("/programs"));
+    const logistics = list(await api("/logistics"));
+    let rooms = [], allocations = [], institutions = [], devices = [], deviceEvents = [];
+    if (isStaff()) [rooms, allocations, institutions, devices, deviceEvents] = await Promise.all([api("/hostel/rooms"), api("/hostel/allocations"), api("/institutions"), api("/devices"), api("/devices/events").catch(()=>[])]);
+    const popts = programs.map(p => `<option value="${p.id}">${esc(p.title)}</option>`).join("");
+    const requests = logistics.map(r => row(`${r.request_type} · programme #${r.program_id}`, `${r.status} | ${r.details}`,
+      isStaff() ? `<span class="actions">${["in_progress","resolved","cancelled"].map(s => `<button class="btn ghost" data-logstatus="${r.id}" data-status="${s}">${s.replace("_"," ")}</button>`).join("")}</span>` : `<span class="pill">${esc(r.status)}</span>`)).join("");
+    $("#app").innerHTML = `<h1>Hostel & logistics</h1><p class="sub">Coordinate accommodation, equipment, transport and accessibility.</p>
+      <div class="card"><h2>Logistics requests</h2>${requests || `<p class="empty">No logistics requests.</p>`}</div>
+      <form class="card" id="logf"><h2>New logistics request</h2><label for="logp">Programme</label><select id="logp">${popts}</select>
+      <label for="logt">Type</label><select id="logt"><option>transport</option><option>equipment</option><option>catering</option><option>accessibility</option><option>other</option></select>
+      <label for="logd">Details</label><textarea id="logd" rows="3" required></textarea><button class="btn">Submit request</button></form>` +
+      (isStaff() ? `<div class="card"><h2>Hostel rooms</h2>${list(rooms).map(r => row(`${r.institution} · ${r.room_number}`, `${r.capacity} beds | ${r.gender}`)).join("") || `<p class="empty">No rooms configured.</p>`}</div>
+      ${["admin","institution"].includes(me.role) ? `<form class="card" id="roomf"><h2>Add hostel room</h2>${F("roomi","Institution","text","required")}${F("roomn","Room number","text","required")}${F("roomc","Capacity","number","min=1 max=50 value=2")}
+      <label for="roomg">Allocation category</label><select id="roomg"><option>any</option><option>female</option><option>male</option></select><button class="btn">Add room</button></form>` : ""}
+      <div class="card"><h2>Allocations</h2>${list(allocations).map(a => row(`Trainee ${a.trainee_id} · room #${a.room_id}`, `Programme #${a.program_id} | ${fmt(a.check_in)} to ${fmt(a.check_out)} | ${a.status}`)).join("") || `<p class="empty">No allocations.</p>`}</div>
+      <form class="card" id="allocf"><h2>Allocate room</h2><label for="allocroom">Room</label><select id="allocroom">${list(rooms).map(r => `<option value="${r.id}">${esc(r.institution)} · ${esc(r.room_number)}</option>`).join("")}</select>
+      <label for="allocp">Programme</label><select id="allocp">${popts}</select>${F("alloct","Trainee ID","number","min=1 required")}${F("allocin","Check-in","date","required")}${F("allocout","Check-out","date","required")}<button class="btn">Allocate</button></form>` : "") +
+      (isStaff() ? `<div class="section-head"><div><div class="eyebrow">Hardware integration</div><h2>Attendance devices</h2></div><span class="pill">${list(devices).filter(d=>d.is_active).length} registered</span></div>
+      <div class="card">${list(devices).map(d=>row(d.name,`${d.device_type.replaceAll("_"," ")} · ${d.serial_number} · ${d.institution}`,`<span class="pill">${d.last_seen_at?"Online / seen":"Awaiting heartbeat"}</span>`)).join("")||`<p class="empty">No attendance hardware registered.</p>`}</div>
+      ${["admin","institution"].includes(me.role)?`<div id="device-key"></div><form class="card" id="devicef"><h2>Register attendance terminal</h2>${F("devn","Device name","text","required")}${F("devs","Serial number","text","required pattern=[A-Za-z0-9_-]+")}${F("devi","Institution","text","required")}
+      <label for="devt">Device capability</label><select id="devt"><option value="qr_kiosk">QR kiosk</option><option value="face_terminal">Face terminal</option><option value="hybrid_terminal">Hybrid QR + face</option></select><button class="btn">Register secure device</button></form>`:""}
+      <div class="card"><h2>Recent device audit</h2>${list(deviceEvents).slice(0,8).map(e=>row(e.event_type.replaceAll("_"," "),`Device #${e.device_id} · ${fmt(e.received_at)} · ${e.status}`)).join("")||`<p class="empty">No device events received.</p>`}</div>`:"") +
+      (me.role === "admin" ? `<div class="card"><h2>Institutions</h2>${list(institutions).map(i => row(i.name, `${i.institution_type} | ${i.state}${i.district ? " | "+i.district : ""}`)).join("") || `<p class="empty">No institutions.</p>`}</div>
+      <form class="card" id="instf"><h2>Add institution</h2>${F("instn","Name","text","required")}<label for="instt">Type</label><select id="instt"><option>NCCT</option><option>VAMNICOM</option><option>RICM</option><option>ICM</option><option>PARTNER</option></select>${F("insts","State","text","required")}${F("instd","District")}${F("inste","Contact email","email")}<button class="btn">Add institution</button></form>` : "");
+    $("#logf").onsubmit = async e => {e.preventDefault();try{await post("/logistics",{program_id:+V("logp"),request_type:V("logt"),details:V("logd")});say("Request submitted.");go("operations");}catch(x){say(x.message,true)}};
+    if ($("#roomf")) $("#roomf").onsubmit = async e => {e.preventDefault();try{await post("/hostel/rooms",{institution:V("roomi"),room_number:V("roomn"),capacity:+V("roomc"),gender:V("roomg")});say("Room added.");go("operations");}catch(x){say(x.message,true)}};
+    if ($("#allocf")) $("#allocf").onsubmit = async e => {e.preventDefault();try{await post("/hostel/allocations",{room_id:+V("allocroom"),program_id:+V("allocp"),trainee_id:+V("alloct"),check_in:V("allocin"),check_out:V("allocout")});say("Room allocated.");go("operations");}catch(x){say(x.message,true)}};
+    if ($("#devicef")) $("#devicef").onsubmit = async e => {e.preventDefault();try{const d=await post("/devices",{name:V("devn"),serial_number:V("devs"),institution:V("devi"),device_type:V("devt")});
+      $("#device-key").innerHTML=`<div class="card warn"><h2>Save this device key now</h2><p class="sub">It is shown only once and must be installed securely on the terminal.</p><div class="mono">${esc(d.api_key)}</div></div>`;$("#devicef").reset();say("Secure attendance device registered.");}catch(x){say(x.message,true)}};
+    if ($("#instf")) $("#instf").onsubmit = async e => {e.preventDefault();try{await post("/institutions",{name:V("instn"),institution_type:V("instt"),state:V("insts"),district:V("instd")||null,contact_email:V("inste")||null,address:""});say("Institution added.");go("operations");}catch(x){say(x.message,true)}};
+  },
+  async ai() {
+    if (isTrainee()) {
+      const d=await api("/ai/recommendations");
+      const recommendation=(item,kind)=>`<div class="item"><div><b>${esc(item.title)}</b><small>${item.reasons.map(esc).join(" · ")}</small><div class="progress"><span style="width:${item.score}%"></span></div></div><div class="score">${item.score}</div></div>`;
+      $("#app").innerHTML=`<div class="eyebrow">Explainable AI</div><h1>Your opportunity compass</h1><p class="sub">Personalized using your verified profile, skills, interests, language and location. Every match includes transparent reasons.</p>
+      <div class="card"><div class="section-head"><h2>Profile intelligence</h2><b>${d.profile_completeness}% complete</b></div><div class="progress"><span style="width:${d.profile_completeness}%"></span></div><ul>${d.next_best_actions.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></div>
+      <div class="grid"><div class="card"><h2>Recommended learning</h2>${d.course_recommendations.map(x=>recommendation(x,"course")).join("")||`<p class="empty">Complete your profile to unlock recommendations.</p>`}</div>
+      <div class="card"><h2>Matched opportunities</h2>${d.job_recommendations.map(x=>recommendation(x,"job")).join("")||`<p class="empty">No active opportunities match yet.</p>`}</div></div>
+      <div class="card ok"><b>Responsible AI by design</b><p class="sub" style="margin:6px 0 0">Recommendations are explainable, do not make automatic hiring decisions, and can be improved by editing your profile.</p></div>`;
+    } else {
+      const d=await api("/ai/risk-insights");
+      $("#app").innerHTML=`<div class="eyebrow">Predictive intervention</div><h1>Learner success intelligence</h1><p class="sub">Prioritize human outreach using explainable attendance, registration and certification signals.</p>
+      <div class="grid"><div class="card metric-card"><div class="metric">${d.total_reviewed}</div><small>Learners reviewed</small></div><div class="card metric-card"><div class="metric" style="color:var(--red)">${d.high_risk}</div><small>High-priority outreach</small></div><div class="card metric-card"><div class="metric" style="color:var(--amber)">${d.medium_risk}</div><small>Medium-priority outreach</small></div></div>
+      <div class="card"><h2>Explainable risk queue</h2>${d.learners.map(x=>row(`${x.trainee_name} · ${x.program_title}`,x.signals.join(" · "),`<div class="score">${x.risk_score}</div>`)).join("")||`<p class="empty">No active learners require review.</p>`}</div>
+      <div class="card ok"><b>Human-in-the-loop safeguard</b><p class="sub" style="margin:6px 0 0">Risk scores support counsellor outreach only. They never block learning, certification or employment access.</p></div>`;
+    }
+  },
+  async analytics() {
+    const d = await api("/analytics/overview");
+    const labels = {users:"Users",programs:"Programmes",registrations:"Registrations",registration_approval_rate:"Registration approval %",courses:"Courses",lesson_completions:"Lesson completions",assessment_pass_rate:"Assessment pass %",certificates:"Certificates",active_jobs:"Active jobs",job_applications:"Job applications",employment_conversion_rate:"Employment conversion %"};
+    $("#app").innerHTML = `<h1>Monitoring dashboard</h1><p class="sub">Central NCCT programme, learning and employment indicators.</p><div class="grid">${Object.entries(labels).map(([k,l]) => `<div class="card"><span class="sub">${l}</span><div class="metric">${esc(d[k])}</div></div>`).join("")}</div>`;
+  },
+  async career() {
+    $("#app").innerHTML = `<h1>Career counsellor</h1><p class="sub">Get practical guidance based on your learning and employment journey.</p>
+      <div class="card" id="chatlog"><p class="empty">Ask about courses, skills, your résumé or interviews.</p></div>
+      <form class="card" id="chatf"><label for="chatlang">Language</label><select id="chatlang"><option value="en">English</option><option value="hi">हिन्दी</option></select>
+      <label for="chatmsg">Your question</label><textarea id="chatmsg" rows="3" required></textarea><button class="btn">Get guidance</button></form>`;
+    $("#chatf").onsubmit = async e => {e.preventDefault();try{const q=V("chatmsg"),d=await post("/career/chat",{message:q,language:V("chatlang")});
+      $("#chatlog").innerHTML += `<div class="question"><b>You</b><p>${esc(q)}</p><b>CoopLearn</b><p>${esc(d.reply)}</p><ul>${list(d.suggested_actions).map(a=>`<li>${esc(a)}</li>`).join("")}</ul><small>${esc(d.disclaimer)}</small></div>`;$("#chatmsg").value="";}catch(x){say(x.message,true)}};
   },
   async staff() {
     $("#app").innerHTML = `<h1>Staff accounts</h1><p class="sub">Create accounts for trusted staff and employers.</p>
@@ -239,7 +352,11 @@ async function records() {
 
 async function lessons(id) {
   const d = list(await api(`/courses/${encodeURIComponent(id)}/lessons`));
-  $("#sub").innerHTML = `<div class="card"><h2>Lessons</h2>${d.map(l => row(l.sort_order + ". " + l.title, l.content)).join("") || `<p class="empty">No lessons added yet.</p>`}</div>` +
+  let progress = {items:[],completion_percentage:0};
+  if (isTrainee()) try { progress = await api(`/courses/${encodeURIComponent(id)}/my-progress`); } catch (x) {}
+  const done = new Map(list(progress.items).map(p => [p.lesson_id,p]));
+  $("#sub").innerHTML = `<div class="card"><h2>Lessons ${isTrainee() ? `· ${progress.completion_percentage}% complete` : ""}</h2>${d.map(l => row(l.sort_order + ". " + l.title, l.content,
+    isTrainee() ? `<button class="btn ${done.get(l.id)?.completed ? "ghost" : ""}" data-progress="${l.id}" data-course="${id}">${done.get(l.id)?.completed ? "Completed" : "Mark complete"}</button>` : "")).join("") || `<p class="empty">No lessons added yet.</p>`}</div>` +
     (isStaff() ? `<form class="card" id="lsf"><h2>Add a lesson</h2>${F("lt", "Title", "text", "required")}<label for="lc">Content</label><textarea id="lc" rows="4"></textarea>
       ${F("lo", "Order", "number", `min=1 value=${d.length + 1}`)}<button class="btn">Add lesson</button></form>` : "");
   if (isStaff()) $("#lsf").onsubmit = async e => {
@@ -247,6 +364,67 @@ async function lessons(id) {
     try { await post(`/courses/${encodeURIComponent(id)}/lessons`, {title: V("lt"), content: V("lc"), sort_order: +V("lo") || 1}); say("Lesson added."); lessons(id); }
     catch (x) { say(x.message, true); }
   };
+}
+
+async function assessments(courseId) {
+  const d = list(await api(`/courses/${encodeURIComponent(courseId)}/assessments`));
+  let attempts = [];
+  if (isTrainee()) attempts = list(await api("/my/assessment-attempts").catch(() => []));
+  const latest = new Map(); attempts.forEach(a => { if (!latest.has(a.assessment_id)) latest.set(a.assessment_id,a); });
+  $("#sub").innerHTML = `<div class="card"><h2>Assessments</h2>${d.map(a => row(a.title, `${a.question_count} questions | pass mark ${a.passing_percentage}% | ${a.max_attempts} attempts${latest.has(a.id) ? ` | latest ${latest.get(a.id).score}%` : ""}`,
+    isTrainee() ? `<button class="btn" data-take="${a.id}">Take assessment</button>` : `<button class="btn ghost" data-attempts="${a.id}">Results</button>`)).join("") || `<p class="empty">No assessments available.</p>`}</div>` +
+    (isStaff() ? `<form class="card" id="asf"><h2>Create assessment</h2>${F("ast","Title","text","required")}${F("asp","Passing percentage","number","min=0 max=100 value=60")}${F("asm","Maximum attempts","number","min=1 max=20 value=3")}
+    <label for="asq">Questions JSON</label><textarea id="asq" rows="7" required>[{"prompt":"Example question","options":["Option A","Option B"],"correct_option":0}]</textarea>
+    ${F("aspub","Publish now","check")}<button class="btn">Create assessment</button></form>` : "");
+  if ($("#asf")) $("#asf").onsubmit = async e => {e.preventDefault();try{const questions=JSON.parse(V("asq"));if(!Array.isArray(questions)||!questions.length)throw new Error("Questions must be a non-empty JSON array.");
+    await post(`/courses/${encodeURIComponent(courseId)}/assessments`,{title:V("ast"),questions,passing_percentage:+V("asp"),max_attempts:+V("asm"),is_published:V("aspub")});say("Assessment created.");assessments(courseId);}catch(x){say(x.message,true)}};
+}
+
+async function takeAssessment(id) {
+  const d = await api(`/assessments/${encodeURIComponent(id)}/questions`);
+  $("#sub").innerHTML = `<form class="card" id="takef"><h2>${esc(d.title)}</h2>${list(d.questions).map((q,i)=>`<div class="question"><b>${i+1}. ${esc(q.prompt)}</b>${list(q.options).map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}" required>${esc(o)}</label>`).join("")}</div>`).join("")}<button class="btn">Submit assessment</button></form>`;
+  $("#takef").onsubmit = async e => {e.preventDefault();const answers=list(d.questions).map((_,i)=>+new FormData(e.target).get(`q${i}`));try{const r=await post(`/assessments/${encodeURIComponent(id)}/attempts`,{answers});
+    $("#sub").innerHTML=`<div class="card ${r.passed?"ok":"warn"}"><h2>${r.passed?"Passed":"Keep learning"}</h2><div class="metric">${r.score}%</div><p>${r.passed?"Assessment completed successfully.":"Review the lessons and try again if attempts remain."}</p></div>`;}catch(x){say(x.message,true)}};
+}
+
+async function schedule(programId) {
+  const d = list(await api(`/programs/${encodeURIComponent(programId)}/timetable`));
+  $("#sub").innerHTML = `<div class="card"><h2>Timetable</h2>${d.map(s=>row(`${fmt(s.session_date)} · ${String(s.start_time).slice(0,5)}–${String(s.end_time).slice(0,5)}`,`${s.topic} | ${s.trainer_name||"Trainer TBA"} | ${s.venue||"Venue TBA"}`)).join("")||`<p class="empty">No sessions scheduled.</p>`}</div>`+
+    (isStaff()?`<form class="card" id="schedf"><h2>Add session</h2>${F("schd","Date","date","required")}${F("schs","Start","time","required")}${F("sche","End","time","required")}${F("scht","Topic","text","required")}${F("schtr","Trainer")}${F("schv","Venue")}<button class="btn">Add session</button></form>`:"");
+  if ($("#schedf")) $("#schedf").onsubmit=async e=>{e.preventDefault();try{await post(`/programs/${encodeURIComponent(programId)}/timetable`,{session_date:V("schd"),start_time:V("schs"),end_time:V("sche"),topic:V("scht"),trainer_name:V("schtr"),venue:V("schv")});say("Session added.");schedule(programId);}catch(x){say(x.message,true)}};
+}
+
+async function manageRegistrations(programId) {
+  const [regs,noms] = await Promise.all([api(`/programs/${encodeURIComponent(programId)}/registrations`),api(`/programs/${encodeURIComponent(programId)}/nominations`)]);
+  $("#sub").innerHTML = `<div class="card"><h2>Registrations</h2>${list(regs).map(r=>row(`Trainee ${r.trainee_id}`,`${r.status} | ${fmt(r.registered_at)}`,`<span class="actions">${["approved","rejected","cancelled"].map(s=>`<button class="btn ghost" data-regstatus="${r.id}" data-status="${s}" data-program="${programId}">${s}</button>`).join("")}</span>`)).join("")||`<p class="empty">No registrations.</p>`}</div>
+    <div class="card"><h2>Nominations</h2>${list(noms).map(n=>row(n.trainee_name,`${n.trainee_email} | ${n.status}`)).join("")||`<p class="empty">No nominations.</p>`}</div>
+    <form class="card" id="nomf"><h2>Nominate participant</h2>${F("nomn","Name","text","required")}${F("nome","Email","email","required")}<button class="btn">Nominate</button></form>`;
+  $("#nomf").onsubmit=async e=>{e.preventDefault();try{await post(`/programs/${encodeURIComponent(programId)}/nominations`,{trainee_name:V("nomn"),trainee_email:V("nome")});say("Participant nominated.");manageRegistrations(programId);}catch(x){say(x.message,true)}};
+}
+
+async function showAttempts(assessmentId) {
+  const d=list(await api(`/assessments/${encodeURIComponent(assessmentId)}/attempts`));
+  $("#sub").innerHTML=`<div class="card"><h2>Assessment results</h2>${d.map(a=>row(`Trainee ${a.trainee_id}`,`${a.score}% | ${a.passed?"passed":"not passed"} | ${fmt(a.submitted_at)}`)).join("")||`<p class="empty">No attempts yet.</p>`}</div>`;
+}
+
+const QUEUE_KEY = "coop_offline_progress";
+function queuedProgress() { try { return JSON.parse(localStorage.getItem(QUEUE_KEY) || "[]"); } catch (e) { return []; } }
+function queueProgress(item) {
+  const q=queuedProgress().filter(x=>x.lesson_id!==item.lesson_id);q.push(item);
+  try { localStorage.setItem(QUEUE_KEY,JSON.stringify(q)); } catch (e) {}
+}
+async function flushProgress() {
+  const q=queuedProgress(); if (!q.length || !token || !navigator.onLine) return;
+  try { const r=await post("/offline/sync",{progress:q});
+    const conflicts=new Set(list(r.conflicts).map(x=>x.lesson_id));
+    localStorage.setItem(QUEUE_KEY,JSON.stringify(q.filter(x=>conflicts.has(x.lesson_id))));
+    if (r.accepted) say(`${r.accepted} offline progress update${r.accepted===1?"":"s"} synced.`);
+  } catch (x) {}
+}
+async function saveLessonProgress(lessonId,courseId) {
+  const item={lesson_id:+lessonId,completed:true,last_position_seconds:0,client_updated_at:new Date().toISOString()};
+  try { await put(`/lessons/${encodeURIComponent(lessonId)}/progress`,{completed:true,last_position_seconds:0});say("Lesson marked complete.");lessons(courseId); }
+  catch (x) { if (!x.network) return say(x.message,true);queueProgress(item);say("Saved offline. Progress will sync when you reconnect."); }
 }
 
 async function go(v) {
@@ -261,28 +439,39 @@ document.addEventListener("click", async e => {
   try {
     if (D.v) go(D.v);
     else if (D.reg) { await post("/programs/" + id(D.reg) + "/register"); say("You are registered for this programme."); }
-    else if (D.regs) {
-      const d = list(await api("/programs/" + id(D.regs) + "/registrations"));
-      $("#sub").innerHTML = `<div class="card"><h2>Registrations</h2>${d.map(r => row("Trainee " + r.trainee_id, `${r.status} | ${fmt(r.registered_at)}`)).join("") || `<p class="empty">No registrations yet.</p>`}</div>`;
-    }
+    else if (D.regs) manageRegistrations(D.regs);
+    else if (D.regstatus) { await patch(`/registrations/${id(D.regstatus)}`,{status:D.status});say("Registration updated.");manageRegistrations(D.program); }
+    else if (D.schedule) schedule(D.schedule);
+    else if (D.enroll) { await post(`/courses/${id(D.enroll)}/enroll`);say("Course enrollment complete.");go("courses"); }
     else if (D.apply) { await post("/jobs/" + id(D.apply) + "/apply"); say("Application sent."); go("jobs"); }
     else if (D.apps) {
       const d = list(await api("/jobs/" + id(D.apps) + "/applications"));
-      $("#sub").innerHTML = `<div class="card"><h2>Applicants</h2>${d.map(a => row("Applicant " + a.applicant_id, `${a.status} | ${fmt(a.applied_at)}`)).join("") || `<p class="empty">No applicants yet.</p>`}</div>`;
+      $("#sub").innerHTML = `<div class="card"><h2>Applicants</h2>${d.map(a => row("Applicant " + a.applicant_id, `${a.status} | ${fmt(a.applied_at)}`,`<span class="actions">${["shortlisted","interview","selected","rejected"].map(s=>`<button class="btn ghost" data-appstatus="${a.id}" data-status="${s}" data-job="${D.apps}">${s}</button>`).join("")}</span>`)).join("") || `<p class="empty">No applicants yet.</p>`}</div>`;
     }
+    else if (D.appstatus) { await patch(`/job-applications/${id(D.appstatus)}`,{status:D.status});say("Application updated.");document.querySelector(`[data-apps="${D.job}"]`)?.click(); }
+    else if (D.logstatus) { await patch(`/logistics/${id(D.logstatus)}`,{status:D.status});say("Logistics request updated.");go("operations"); }
     else if (D.les) lessons(D.les);
+    else if (D.assess) assessments(D.assess);
+    else if (D.take) takeAssessment(D.take);
+    else if (D.attempts) showAttempts(D.attempts);
+    else if (D.progress) saveLessonProgress(D.progress,D.course);
   } catch (x) { say(x.message, true); }
 });
 $("#out").onclick = logout;
 
 async function start() {
-  try { me = await api("/auth/me"); } catch (x) { if (!token) showLogin(false); return; }
-  const tabs = [["programs", "Programmes", 1], ["courses", "Courses", 1], ["attendance", "Attendance", isStaff()], ["certs", "Certificates", 1],
-    ["jobs", "Jobs", 1], ["qr", "My QR", isTrainee()], ["staff", "Staff accounts", me.role === "admin"]];
-  $("#nav").innerHTML = tabs.filter(t => t[2]).map(t => `<button data-v="${t[0]}">${t[1]}</button>`).join("");
+  try { me = await api("/auth/me"); sessionStorage.setItem("coop_me",JSON.stringify(me)); }
+  catch (x) { try { if (x.network) me=JSON.parse(sessionStorage.getItem("coop_me")||"null"); } catch(e){} if (!me) { if (!token) showLogin(false); return; } }
+  document.body.classList.remove("auth-mode");
+  const tabs = [["home","Overview",1],["ai","AI Insights",isTrainee()||isStaff()],["programs", "Programmes", 1], ["courses", "Learning", 1], ["attendance", "Attendance", isStaff()], ["certs", "Certificates", 1],
+    ["jobs", "Jobs", 1], ["profile", "My profile", isTrainee()], ["career", "Career guide", isTrainee()], ["qr", "My QR", isTrainee()],
+    ["operations", "Operations", isTrainee() || isStaff()], ["analytics", "Analytics", ["admin","institution"].includes(me.role)], ["staff", "Staff accounts", me.role === "admin"]];
+  const icons={home:"⌂",ai:"✣",programs:"▦",courses:"▤",attendance:"◉",certs:"◇",jobs:"⌁",profile:"♙",career:"✦",qr:"▣",operations:"⚙",analytics:"◫",staff:"♚"};
+  $("#nav").innerHTML = tabs.filter(t => t[2]).map(t => `<button data-v="${t[0]}"><span class="navicon">${icons[t[0]]||"•"}</span>${t[1]}</button>`).join("");
   $("#nav").hidden = false; $("#out").hidden = false;
   $("#user").textContent = me.full_name + " (" + me.role + ")";
-  go("programs");
+  flushProgress();
+  go("home");
 }
 
 fetch(API + "/health").then(r => r.ok ? r.json() : Promise.reject())
@@ -290,6 +479,8 @@ fetch(API + "/health").then(r => r.ok ? r.json() : Promise.reject())
   .catch(() => $("#api").innerHTML = '<i class="dot off"></i>Server not reachable');
 
 if (token) start().then(() => { if (!me) showLogin(false); }); else showLogin(false);
+window.addEventListener("online", flushProgress);
+if ("serviceWorker" in navigator && location.protocol !== "file:") navigator.serviceWorker.register("./sw.js").catch(() => {});
 </script>
 </body>
 </html>

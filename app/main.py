@@ -1,12 +1,15 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 from uuid import uuid4
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app import models, schemas
+from app.aligned import router as aligned_router
 from app.config import settings
 from app.database import Base, engine, get_db
 from app.dependencies import current_user, require_roles
@@ -28,6 +31,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(aligned_router)
 staff = Depends(require_roles("admin", "institution", "trainer"))
 
 
@@ -134,9 +138,10 @@ def list_lessons(course_id: int, db: Session = Depends(get_db), user: models.Use
 
 @app.post("/attendance", response_model=schemas.AttendanceOut, status_code=201)
 def mark_attendance(data: schemas.AttendanceCreate, db: Session = Depends(get_db), user: models.User = staff):
-    if data.method not in ("manual", "qr"): raise HTTPException(422, "method must be manual or qr")
+    if data.method != "manual": raise HTTPException(422, "Use /attendance/scan for QR attendance")
     if not db.get(models.Program, data.program_id): raise HTTPException(404, "Programme not found")
-    if not db.get(models.User, data.trainee_id): raise HTTPException(404, "Trainee not found")
+    trainee = db.get(models.User, data.trainee_id)
+    if not trainee or trainee.role != "trainee": raise HTTPException(404, "Trainee not found")
     item = models.Attendance(**data.model_dump())
     db.add(item)
     try: db.commit()
@@ -155,7 +160,15 @@ def list_attendance(program_id: int | None = None, trainee_id: int | None = None
 
 @app.post("/certificates", response_model=schemas.CertificateOut, status_code=201)
 def issue_certificate(data: schemas.CertificateCreate, db: Session = Depends(get_db), user: models.User = staff):
-    if not db.get(models.User, data.trainee_id) or not db.get(models.Program, data.program_id): raise HTTPException(404, "Trainee or programme not found")
+    trainee = db.get(models.User, data.trainee_id)
+    if not trainee or trainee.role != "trainee" or not db.get(models.Program, data.program_id): raise HTTPException(404, "Trainee or programme not found")
+    registration = db.scalar(select(models.Registration).where(models.Registration.trainee_id == data.trainee_id,
+                                                                 models.Registration.program_id == data.program_id,
+                                                                 models.Registration.status == "approved"))
+    if not registration: raise HTTPException(409, "Only an approved programme participant can be certified")
+    if db.scalar(select(models.Certificate).where(models.Certificate.trainee_id == data.trainee_id,
+                                                   models.Certificate.program_id == data.program_id)):
+        raise HTTPException(409, "A certificate has already been issued for this trainee and programme")
     item = models.Certificate(trainee_id=data.trainee_id, program_id=data.program_id, certificate_code=uuid4().hex.upper())
     db.add(item); db.commit(); db.refresh(item); return item
 
@@ -180,7 +193,8 @@ def list_jobs(skip: int = 0, limit: int = Query(50, ge=1, le=100), db: Session =
 
 @app.post("/jobs/{job_id}/apply", response_model=schemas.ApplicationOut, status_code=201)
 def apply_for_job(job_id: int, db: Session = Depends(get_db), user: models.User = Depends(require_roles("trainee"))):
-    if not db.get(models.Job, job_id): raise HTTPException(404, "Job not found")
+    job = db.get(models.Job, job_id)
+    if not job or not job.is_active: raise HTTPException(404, "Active job not found")
     if db.scalar(select(models.JobApplication).where(models.JobApplication.job_id == job_id, models.JobApplication.applicant_id == user.id)):
         raise HTTPException(409, "You already applied for this job")
     item = models.JobApplication(job_id=job_id, applicant_id=user.id)
@@ -198,3 +212,8 @@ def job_applications(job_id: int, db: Session = Depends(get_db), user: models.Us
     if not job: raise HTTPException(404, "Job not found")
     if user.role != "admin" and job.employer_id != user.id: raise HTTPException(403, "You can only see applicants to your own jobs")
     return db.scalars(select(models.JobApplication).where(models.JobApplication.job_id == job_id).order_by(models.JobApplication.applied_at.desc())).all()
+
+
+# Keep this mount last so API routes and /docs take precedence over the SPA shell.
+frontend_dir = Path(__file__).resolve().parent.parent / "frontend"
+app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
