@@ -4,7 +4,7 @@ Backend for SIH problem statement 26087: cooperative training ERP, LMS, analytic
 
 The evidence-based feature audit is in [ALIGNMENT_REPORT.md](ALIGNMENT_REPORT.md). The backend is currently assessed at **90/100 alignment**; the report separates working API capability from hardware/mobile/infrastructure work that still requires integration.
 
-The post-hardening external-round assessment, scoring evidence and seven-minute judge flow are in [EXTERNAL_EVALUATION.md](EXTERNAL_EVALUATION.md). Run `python scripts/seed_demo.py` after creating an administrator to load realistic, idempotent demonstration data; demo identities receive random unknown passwords.
+The post-hardening external-round assessment, scoring evidence and seven-minute judge flow are in [EXTERNAL_EVALUATION.md](EXTERNAL_EVALUATION.md). Presentation-ready opening, problem–solution narrative, differentiators and judge answers are in [PITCH_GUIDE.md](PITCH_GUIDE.md). Run `python scripts/seed_demo.py` after creating an administrator to load realistic, idempotent demonstration data; demo identities receive random unknown passwords.
 
 
 The default database is SQLite and the database file is created automatically. To use PostgreSQL, set `DATABASE_URL` in `.env`, for example `postgresql+psycopg://user:password@localhost:5432/cooperative_training`. The web client uses the live API at `http://127.0.0.1:8000` by default.
