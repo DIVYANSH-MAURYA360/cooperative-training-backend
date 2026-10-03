@@ -2,22 +2,6 @@
 
 Backend starter for cooperative training programme management, learning content, attendance, certificates, and employment.
 
-## Run locally
-
-### Open the web preview
-
-The `frontend/index.html` file is a clickable dashboard preview. Start its lightweight local web server from this project folder with `python -m http.server 4173 --directory frontend`, then open `http://127.0.0.1:4173`. This only needs Python and uses no Python packages. Its dashboard is sample data; it shows “Preview mode” until the API is running.
-
-### Run the backend API
-
-1. Install Python 3.11 or newer.
-2. In this folder, create a virtual environment: `python -m venv .venv`
-3. Activate it on Windows: `.venv\\Scripts\\Activate.ps1`
-4. Install packages: `pip install -e .`
-5. Copy `.env.example` to `.env` and replace `SECRET_KEY` with a long random value.
-6. Start the API: `uvicorn app.main:app --reload`
-7. In a second terminal, create the first administrator: `python scripts/create_admin.py` (run this from the backend folder).
-8. Open `http://127.0.0.1:8000/docs` to try the API interactively.
 
 The default database is SQLite and the database file is created automatically. To use PostgreSQL, set `DATABASE_URL` in `.env`, for example `postgresql+psycopg://user:password@localhost:5432/cooperative_training`. The dashboard preview currently uses sample data; the frontend guide shows how to connect real API calls.
 
